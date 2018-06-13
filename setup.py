@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name="lorem-bot",
     version="0.0.1",
-    author="Thiago Pereira",
+    author="DSW12018",
     author_email="thiagoflames@gmail.com",
     license='MIT',
     description="A bot framework for devolopers",
@@ -15,9 +15,11 @@ setuptools.setup(
     url="https://github.com/DSW12018/LoremBot",
     packages=setuptools.find_packages(),
     classifiers=(
-        "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
         "Operating System :: OS Independent",
     ),
-
 )
+
