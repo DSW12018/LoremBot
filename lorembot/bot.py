@@ -1,13 +1,15 @@
 from services import SubjectTelegram
-from behaviour import Messaging
+from obsersers import Messaging
 
 
 def main():
     updater = SubjectTelegram()
     messaging = Messaging()
 
-    # Attaching behaviorals to chatbot
+    # Attaching obsersers to chatbot
     updater.attach(messaging)
+    updater.attach(payments)
+    updater.attach(responsing)
 
     updater.fetch_updates()
 
