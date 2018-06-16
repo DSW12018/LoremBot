@@ -1,2 +1,2 @@
-sqlalchemy
-python-telegram-bot
+python-telegram-bot==10.1.0
+SQLAlchemy==1.2.8
