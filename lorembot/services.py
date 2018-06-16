@@ -1,3 +1,5 @@
+from utils import JSONRequest
+
 class SubjectService(object):
 
     def __init__(self):
@@ -30,22 +32,28 @@ class SubjectTelegram(SubjectService):
 
     _ENDPOINT = "https://api.telegram.org/"
     _STOP_FETCHING = False
+    _TOKEN = ""
+    _TIMEOUT = 100
 
     def __init__(self):
+        super().__init__(self)
         # Read config file to get token
-        self._TOKEN = ""  # get token from file
         self.BOT_ENDPOINT = "{}/{}".format(self._ENDPOINT, self._TOKEN)
 
     """
     Fetches updates from telegram api.
     """
     def fetch_updates():
-        updates_url = "{}/getUpdates?timeout=100".format(self.BOT_ENDPOINT)
+        updates_url = "{}/getUpdates?timeout={}".format(
+            self.BOT_ENDPOINT,
+            self._TIMEOUT
+        )
+
         while True:
             if self._STOP_FETCHING:
                 return
 
-            updates = []  # Actually make the request
+            updates = JSONRequest.fetch(updates_url)
             for update in updates:
                 self.notify(update)
 
