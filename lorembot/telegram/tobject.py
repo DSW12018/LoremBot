@@ -1,20 +1,24 @@
-class TObject(object):
+class TObject(dict):
     REQUIRED = []
     OPTIONAL = []
+    IGNORE = []
 
-    def __init__(self, *args, **kwargs):
+    def __getattr__(self, item):
+        return self[item]
+
+    def __init__(self, **kwargs):
         # required
-        self.build_required(kwargs)
+        self.build_required(**kwargs)
         # optional
-        self.build_optional(kwargs)
+        self.build_optional(**kwargs)
 
-    def build_required(self, *args, **kwargs):
-        for required in REQUIRED:
+    def build_required(self, **kwargs):
+        for required in self.REQUIRED:
             self[required] = kwargs[required]
 
-    def build_optional(self, *args, **kwargs):
-        for optional in OPTIONAL:
-            if optional in kwargs:
+    def build_optional(self, **kwargs):
+        for optional in self.OPTIONAL:
+            if optional in kwargs and not optional in self.IGNORE:
                 self[optional] = kwargs[optional]
             else:
                 self[optional] = None
