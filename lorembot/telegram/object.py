@@ -1,4 +1,6 @@
 class Object(object):
+    REQUIRED = []
+    OPTIONAL = []
 
     def __init__(self, *args, **kwargs):
         # required
