@@ -4,9 +4,9 @@ from .base import Base
 
 class InlineKeyboardMarkup(Base):
 
-    def __init__(self, *args, **kwargs):
-        self.inline_keyboard = kwargs['inline_keyboard']
-
+    REQUIRED = [
+        'inline_keyboard'
+    ]
 
     @property
     def as_json(self):

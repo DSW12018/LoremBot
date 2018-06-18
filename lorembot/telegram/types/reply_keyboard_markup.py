@@ -4,12 +4,14 @@ from .base import Base
 
 class ReplyKeyboardMarkup(Base):
 
-    def __init__(self, *args, **kwargs):
-        self.keyboard = kwargs['keyboard']
-        self.resize_keyboard = kwargs['resize_keyboard']
-        self.one_time_keyboard = kwargs['one_time_keyboard']
-        self.selective = kwargs['selective']
-
+    REQUIRED = [
+        'keyboard'
+    ]
+    OPTIONAL = [
+        'resize_keyboard',
+        'one_time_keyboard',
+        'selective'
+    ]
 
     @property
     def as_json(self):
