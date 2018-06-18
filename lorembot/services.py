@@ -46,13 +46,13 @@ class TelegramService(Service):
             config.uri,
             config.timeout
         )
-
+        print(updates_url)
         while True:
             if self._STOP_FETCHING:
                 return
 
             updates = JSONRequest.fetch(updates_url)
-
+            print(updates)
             if not 'result' in updates:
                 pass
 
