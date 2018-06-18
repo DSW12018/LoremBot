@@ -212,3 +212,47 @@ class SendVideoNote(BaseMethod):
         'reply_to_message_id',
         'reply_markup'
     ]
+
+class SendLocation(BaseMethod):
+
+    ENDPOINT = '/sendLocation'
+
+    RESTRICTED = [
+        'reply_markup'
+    ]
+
+    REQUIRED = [
+        'chat_id',
+        'location',
+        'latitude',
+        'longitude'
+    ]
+
+    OPTIONAL = [
+        'live_period',
+        'disable_notification',
+        'reply_to_message_id',
+        'reply_markup'
+    ]
+
+class SendContact(BaseMethod):
+
+    ENDPOINT = '/sendContact'
+
+    RESTRICTED = [
+        'reply_markup'
+    ]
+
+    REQUIRED = [
+        'chat_id',
+        'phone_number'
+        'first_name'
+    ]
+
+    OPTIONAL = [
+        'last_name',
+        'length',
+        'disable_notification',
+        'reply_to_message_id',
+        'reply_markup'
+    ]
