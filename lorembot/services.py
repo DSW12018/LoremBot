@@ -32,7 +32,7 @@ class Service(object):
     """
     def notify(self, update):
         for observer in self._observers:
-            ObserverBase.update(observer, update)
+            observer.receive(update)
 
 class TelegramService(Service):
 
