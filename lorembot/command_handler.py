@@ -1,11 +1,8 @@
-# carregar o arquivo de rotas
+from .config import config
+
 
 class CommandHandler():
-    def __init__(self):
-        pass
-
-    def load_commands(self):
-        pass
-
-    def match_commands(self):
-        pass
+    def match(cmd):
+        for command in config.commands:
+            if cmd == command.command:
+                command.function()
