@@ -1,8 +1,8 @@
 import json
-from .type_base import TypeBase
+from .base import Base
 
 
-class ReplyKeyboardMarkup(TypeBase):
+class ReplyKeyboardMarkup(Base):
 
     def __init__(self, *args, **kwargs):
         self.keyboard = kwargs['keyboard']

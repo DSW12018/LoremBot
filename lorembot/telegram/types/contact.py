@@ -1,7 +1,7 @@
 import json
-from .type_base import TypeBase
+from .base import Base
 
-class Contact(TypeBase):
+class Contact(Base):
 
     def __init__(self, *args, **kwargs):
         # required

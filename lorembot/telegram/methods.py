@@ -1,16 +1,11 @@
 import requests
 import json
 from lorembot.config import uri
+from .object import Object
 
-class BaseMethod(object):
+class BaseMethod(Object):
 
     RESTRICTED = []
-
-    def __init__(self, *args, **kwargs):
-        # required
-        self.build_required(kwargs)
-        # optional
-        self.build_optional(kwargs):
 
     @property
     def as_json(self):
@@ -18,7 +13,7 @@ class BaseMethod(object):
         for required in REQUIRED and not required in RESTRICTED:
             dict[required] = self[required]
 
-        for optional in OPTIONAL
+        for optional in OPTIONAL:
             if not self[optional] is None and not optional in RESTRICTED:
                 dict[optional] = self[optional]
 
@@ -27,17 +22,6 @@ class BaseMethod(object):
                 dict[restricted] = self[restricted].as_json
 
         return json.dumps(dict)
-
-    def build_required(self, *args, **kwargs):
-        for required in REQUIRED:
-            self[required] = kwargs[required]
-
-    def build_optional(self, *args, **kwargs):
-        for optional in OPTIONAL
-            if optional in kwargs:
-                self[optional] = kwargs[optional]
-            else:
-                self[optional] = None
 
     def send(self):
         url = uri + self.ENDPOINT

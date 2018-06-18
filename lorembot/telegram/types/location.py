@@ -1,6 +1,7 @@
-from .type_base import TypeBase
+from .base import Base
 
-class Location(TypeBase):
+
+class Location(Base):
 
     def __init__(self, *args, **kwargs):
         self.longitude = kwargs['longitude']

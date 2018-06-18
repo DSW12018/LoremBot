@@ -1,7 +1,7 @@
-from .type_base import TypeBase
+from .base import Base
 
 
-class KeyboardButton(TypeBase):
+class KeyboardButton(Base):
 
     def __init__(self, **kwargs):
         self.text = kwargs['text']
