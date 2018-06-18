@@ -245,13 +245,12 @@ class SendContact(BaseMethod):
 
     REQUIRED = [
         'chat_id',
-        'phone_number'
+        'phone_number',
         'first_name'
     ]
 
     OPTIONAL = [
         'last_name',
-        'length',
         'disable_notification',
         'reply_to_message_id',
         'reply_markup'
