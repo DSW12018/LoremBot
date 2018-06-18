@@ -123,3 +123,24 @@ class SendAudio(BaseMethod):
         'reply_to_message_id',
         'reply_markup'
     ]
+
+class SendDocument(BaseMethod):
+
+    ENDPOINT = '/sendDocument'
+
+    RESTRICTED = [
+        'reply_markup'
+    ]
+
+    REQUIRED = [
+        'chat_id',
+        'document'
+    ]
+
+    OPTIONAL = [
+        'caption',
+        'parse_mode',
+        'disable_notification',
+        'reply_to_message_id',
+        'reply_markup'
+    ]
