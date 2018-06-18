@@ -1,31 +1,33 @@
 import requests
 import json
-from lorembot.config import uri
-from .object import Object
+from .tobject import TObject
+from ..config import config
 
-class BaseMethod(Object):
+class BaseMethod(TObject):
 
     RESTRICTED = []
 
     @property
     def as_json(self):
         dict = {}
-        for required in REQUIRED and not required in RESTRICTED:
-            dict[required] = self[required]
+        for required in self.REQUIRED:
+            if not required in self.RESTRICTED:
+                dict[required] = self[required]
 
-        for optional in OPTIONAL:
-            if not self[optional] is None and not optional in RESTRICTED:
+        for optional in self.OPTIONAL:
+            if not self[optional] is None and not optional in self.RESTRICTED:
                 dict[optional] = self[optional]
 
-        for restricted in RESTRICTED:
+        for restricted in self.RESTRICTED:
             if not self[restricted] is None:
                 dict[restricted] = self[restricted].as_json
 
         return json.dumps(dict)
 
     def send(self):
-        url = uri + self.ENDPOINT
-        requests.post(url, self.as_json)
+        url = config.uri + self.ENDPOINT
+        headers = { 'Content-Type': 'application/json' }
+        requests.post(url, data=self.as_json, headers=headers)
 
 class SendMessage(BaseMethod):
 
