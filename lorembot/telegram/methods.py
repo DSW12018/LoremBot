@@ -78,3 +78,24 @@ class ForwardMessage(BaseMethod):
     OPTIONAL = [
         'disable_notification'
    ]
+
+class SendPhoto(BaseMethod):
+
+    ENDPOINT = '/sendPhoto'
+
+    RESTRICTED = [
+        'reply_markup'
+    ]
+
+    REQUIRED = [
+        'chat_id',
+        'photo'
+    ]
+
+    OPTIONAL = [
+        'caption',
+        'parse_mode',
+        'disable_notification',
+        'reply_to_message_id',
+        'reply_markup'
+    ]
