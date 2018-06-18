@@ -25,3 +25,8 @@ class JSONRequest(object):
     """
     def fetch(url):
         return JSONRequest.parse_json_request(url)
+
+class CommandMapper(object):
+    def __init(self, command, function):
+        self.command = command
+        self.function = function
