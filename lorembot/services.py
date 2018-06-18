@@ -36,7 +36,7 @@ class SubjectTelegram(SubjectService):
 
     _ENDPOINT = "https://api.telegram.org/bot"
     _STOP_FETCHING = False
-    _TOKEN = "597378495:AAGXqZOta46LZ_7NhtqCpGp7i9JWaJ6gyV8"
+    _TOKEN = "574010025:AAHcvufy9tiMBUy8kaCVZcNnZBfWweUPNQg"
     _TIMEOUT = 100
 
     def __init__(self):
@@ -52,13 +52,13 @@ class SubjectTelegram(SubjectService):
             self.BOT_ENDPOINT,
             self._TIMEOUT
         )
-
+        print(updates_url)
         while True:
             if self._STOP_FETCHING:
                 return
 
             updates = JSONRequest.fetch(updates_url)
-
+            print(updates)
             if not 'result' in updates:
                 pass
 
