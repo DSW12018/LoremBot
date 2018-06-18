@@ -1,7 +1,7 @@
 import json
-from ..object import Object
+from ..tobject import TObject
 
-class Base(Object):
+class Base(TObject):
 
     @property
     def as_json(self):
