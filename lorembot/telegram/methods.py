@@ -144,3 +144,28 @@ class SendDocument(BaseMethod):
         'reply_to_message_id',
         'reply_markup'
     ]
+
+class SendVideo(BaseMethod):
+
+    ENDPOINT = '/sendVideo'
+
+    RESTRICTED = [
+        'reply_markup'
+    ]
+
+    REQUIRED = [
+        'chat_id',
+        'video'
+    ]
+
+    OPTIONAL = [
+        'caption',
+        'parse_mode',
+        'supports_streaming',
+        'width',
+        'height',
+        'duration',
+        'disable_notification',
+        'reply_to_message_id',
+        'reply_markup'
+    ]
