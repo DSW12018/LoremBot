@@ -99,3 +99,27 @@ class SendPhoto(BaseMethod):
         'reply_to_message_id',
         'reply_markup'
     ]
+
+class SendAudio(BaseMethod):
+
+    ENDPOINT = '/sendAudio'
+
+    RESTRICTED = [
+        'reply_markup'
+    ]
+
+    REQUIRED = [
+        'chat_id',
+        'audio'
+    ]
+
+    OPTIONAL = [
+        'caption',
+        'parse_mode',
+        'duration',
+        'performer',
+        'title',
+        'disable_notification',
+        'reply_to_message_id',
+        'reply_markup'
+    ]
