@@ -1,8 +1,10 @@
-from utils import JSONRequest
 import time
-from behaviour import BehaviorBase
+from .config import config
+from .utils import JSONRequest
+from .observers import ObserverBase
 
-class SubjectService(object):
+
+class Service(object):
 
     _observers = []
 
@@ -30,27 +32,19 @@ class SubjectService(object):
     """
     def notify(self, update):
         for observer in self._observers:
-            BehaviorBase.update(observer, update)
+            observer.receive(update)
 
-class SubjectTelegram(SubjectService):
+class TelegramService(Service):
 
-    _ENDPOINT = "https://api.telegram.org/bot"
     _STOP_FETCHING = False
-    _TOKEN = "574010025:AAHcvufy9tiMBUy8kaCVZcNnZBfWweUPNQg"
-    _TIMEOUT = 100
-
-    def __init__(self):
-        super(SubjectService, self).__init__()
-        # Read config file to get token
-        self.BOT_ENDPOINT = "{}{}".format(self._ENDPOINT, self._TOKEN)
 
     """
     Fetches updates from telegram api.
     """
     def fetch_updates(self):
         updates_url = "{}/getUpdates?timeout={}".format(
-            self.BOT_ENDPOINT,
-            self._TIMEOUT
+            config.uri,
+            config.timeout
         )
         print(updates_url)
         while True:
@@ -64,7 +58,7 @@ class SubjectTelegram(SubjectService):
 
             for update in updates['result']:
                 self.notify(update)
-            time.sleep(0.5)
+            time.sleep(config.interval)
 
     """
     Stops a subject from fecthing updates from telegram api.

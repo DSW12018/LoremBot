@@ -1,9 +1,9 @@
-from services import SubjectTelegram
+from services import TelegramService
 from obsersers import Messaging
-
+from settings import settings
 
 def main():
-    updater = SubjectTelegram()
+    updater = SubjectTelegram(settings)
     messaging = Messaging()
 
     # Attaching obsersers to chatbot

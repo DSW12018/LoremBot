@@ -6,6 +6,10 @@ class Document(Base):
         'file_id'
     ]
 
+    IGNORE = [
+        'thumb'
+    ]
+
     OPTIONAL = [
         'thumb',
         'file_name',

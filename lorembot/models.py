@@ -1,1 +1,3 @@
-# Criar base model para o framework
+from sqlalchemy.ext.declarative import declarative_base
+
+BaseModel = declarative_base()

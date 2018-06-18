@@ -1,6 +1,7 @@
 from .audio import Audio
 from .contact import Contact
 from .location import Location
+from .document import Document
 from .inline_keyboard_button import InlineKeyboardButton
 from .inline_keyboard_markup import InlineKeyboardMarkup
 from .keyboard_button import KeyboardButton
