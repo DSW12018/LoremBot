@@ -169,3 +169,46 @@ class SendVideo(BaseMethod):
         'reply_to_message_id',
         'reply_markup'
     ]
+
+class SendVoice(BaseMethod):
+
+    ENDPOINT = '/sendVoice'
+
+    RESTRICTED = [
+        'reply_markup'
+    ]
+
+    REQUIRED = [
+        'chat_id',
+        'voice'
+    ]
+
+    OPTIONAL = [
+        'caption',
+        'parse_mode',
+        'duration',
+        'disable_notification',
+        'reply_to_message_id',
+        'reply_markup'
+    ]
+
+class SendVideoNote(BaseMethod):
+
+    ENDPOINT = '/sendVideoNote'
+
+    RESTRICTED = [
+        'reply_markup'
+    ]
+
+    REQUIRED = [
+        'chat_id',
+        'video_note'
+    ]
+
+    OPTIONAL = [
+        'duration',
+        'length',
+        'disable_notification',
+        'reply_to_message_id',
+        'reply_markup'
+    ]
