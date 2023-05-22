@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
  install_requires = [
-    'requests==2.19.1',
+    'requests==2.31.0',
     'SQLAlchemy==1.2.8'
 ]
 
