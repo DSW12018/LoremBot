@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
  install_requires = [
     'requests==2.19.1',
-    'SQLAlchemy==1.2.8'
+    'SQLAlchemy==1.3.0'
 ]
 
 setuptools.setup(
